@@ -29,5 +29,5 @@ const HomePage = ({ history }) => {
     </Segment>
   );
 };
-
+//
 export default HomePage;
