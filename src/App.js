@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Provider } from "react-redux";
+import store from "./store";
+
+import Count from "./components/Count";
+import Control from "./components/control";
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <h3>
+            Basic: react, react-redux, redux using mapStateToProps,
+            mapDispatchToProps
+          </h3>
+          <Count />
+          <Control />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
+
+//1. Store
+//      Action
+//      Reducers
+
+//2. React Components
+//      Child Components
+
+//3. React-Redux Connect
+//      Provider Component
+//      Store
+//      App component
+
+// If we need Data
+// mapStateToProps(state) return object
+
+//If we want to dispatch some action
+//mapDispatchToProps(dispatch) return object
+
+//connect(mapStateToProps, mapDispatchToProps)(component)
