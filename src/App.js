@@ -12,7 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <h3>
-            Basic: react, react-redux, redux using mapStateToProps,
+            Basic concept: react, react-redux, redux using mapStateToProps,
             mapDispatchToProps
           </h3>
           <Count />
