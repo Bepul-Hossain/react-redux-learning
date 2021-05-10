@@ -1,25 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const Control = (props) => {
+const Control = () => {
+  const dispatch = useDispatch();
+  const add = () => {
+    dispatch({ type: "ADD" });
+  };
+  const sub = () => {
+    dispatch({ type: "SUB" });
+  };
   return (
     <div>
-      <button onClick={() => props.add()}>+</button>
-      <button onClick={() => props.sub()}>-</button>
+      <button onClick={add}>+</button>
+      <button onClick={sub}>-</button>
     </div>
   );
 };
-//action
-function mapDispatchToProps(dispatch) {
-  return {
-    add: () => {
-      dispatch({ type: "ADD" });
-    },
 
-    sub: () => {
-      dispatch({ type: "SUB" });
-    },
-  };
-}
-//connect function 1st parameter mapStateToProps ই নিয়ে থাকে । সেজন্য প্রথমে একটা null  দিতে হবে ।
-export default connect(null, mapDispatchToProps)(Control);
+export default Control;

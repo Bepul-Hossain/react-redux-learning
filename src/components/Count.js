@@ -1,16 +1,17 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-const Count = (props) => {
+const Count = () => {
+  const counting = useSelector((state) => state.count);
+  const { some } = useSelector((state) => state);
+  console.log(counting);
+  console.log({ some });
+  // console.log("some = " + some);
   return (
     <div>
-      <h1>{props.count}</h1>
+      <h1>{counting}</h1>
     </div>
   );
 };
 
-//need data
-function mapStateToProps(state) {
-  return { count: state.count };
-}
-export default connect(mapStateToProps)(Count);
+export default Count;
