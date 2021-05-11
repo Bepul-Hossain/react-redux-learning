@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Display from "./componentD";
+
+// Create a Context
+export const NumberContext = React.createContext();
+// It returns an object with 2 values:
+// { Provider, Consumer }
 
 function App() {
+  // Use the Provider to make a value available to all
+  // children and grandchildren
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NumberContext.Provider value={42}>
+      <div>
+        <Display />
+      </div>
+    </NumberContext.Provider>
   );
 }
 
 export default App;
+
+//যদি আমাদের একটা props, 1st Component থেকে 2nd Component,2nd Component থেকে 3rd Component (আরও অনেক) এ পাঠানো দরকার হয় ।
+//সেক্ষেত্রে আমরা সরাসরি যেকোনো component থেকে Data receive করতে পারি useContext Hook use করে ।
+//useContext Hook use করলে আমাদের নেস্টিং আকারে props পাঠানো লাগে না ।
