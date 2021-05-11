@@ -7,14 +7,16 @@ export const NumberContext = React.createContext();
 // It returns an object with 2 values:
 // { Provider, Consumer }
 
+export const ProfileContext = React.createContext();
+
 function App() {
   // Use the Provider to make a value available to all
   // children and grandchildren
   return (
     <NumberContext.Provider value={42}>
-      <div>
+      <ProfileContext.Provider value="this is profile">
         <Display />
-      </div>
+      </ProfileContext.Provider>
     </NumberContext.Provider>
   );
 }
